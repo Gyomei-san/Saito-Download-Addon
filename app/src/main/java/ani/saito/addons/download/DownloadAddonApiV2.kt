@@ -1,4 +1,4 @@
-package ani.dantotsu.addons.download
+package ani.saito.addons.download
 
 import android.content.Context
 import android.net.Uri

@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace 'dantotsu.downloadAddon'
+    namespace 'saito.downloadAddon'
     compileSdk 34
 
     defaultConfig {

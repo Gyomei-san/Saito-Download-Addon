@@ -5,5 +5,5 @@ dependencyResolutionManagement {
         maven("https://jitpack.io")
     }
 }
-rootProject.name = "Dantotsu-Download-Addon"
+rootProject.name = "Saito-Download-Addon"
 include(":app")

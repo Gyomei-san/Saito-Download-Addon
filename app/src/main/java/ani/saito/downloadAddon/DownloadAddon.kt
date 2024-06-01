@@ -1,9 +1,9 @@
-package ani.dantotsu.downloadAddon
+package ani.saito.downloadAddon
 
 import android.content.Context
 import android.net.Uri
 import android.util.Log
-import ani.dantotsu.addons.download.DownloadAddonApi
+import ani.saito.addons.download.DownloadAddonApi
 import com.arthenica.ffmpegkit.FFmpegKit
 import com.arthenica.ffmpegkit.FFmpegKitConfig
 import com.arthenica.ffmpegkit.FFprobeKit
