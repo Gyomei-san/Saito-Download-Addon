@@ -1,8 +1,5 @@
 package ani.saito.downloadAddon;
 
-import static kotlin.coroutines.jvm.internal.Boxing.boxLong;
-import static kotlinx.coroutines.debug.internal.DebugCoroutineInfoImplKt.*;
-
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
@@ -28,45 +25,27 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt;
 import kotlinx.coroutines.debug.internal.DebugCoroutineInfoImplKt;
 
-/** @noinspection KotlinInternalInJava*/
 @Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010$\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0006\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J;\u0010\u0007\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\t2\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\t0\u000b2\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\u00040\rH@ø\u0001\u0000¢\u0006\u0002\u0010\u000eJ;\u0010\u000f\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\t0\u000b2\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\u00040\rH@ø\u0001\u0000¢\u0006\u0002\u0010\u000eJ}\u0010\u0010\u001a\u00020\u00062\u0006\u0010\u0011\u001a\u00020\t2\u0006\u0010\u0012\u001a\u00020\t2\u0012\u0010\u0013\u001a\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t0\u00142\u0018\u0010\u0015\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t0\u00160\u000b2\u0018\u0010\u0017\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t0\u00160\u000b2\u0012\u0010\u0018\u001a\u000e\u0012\u0004\u0012\u00020\u0019\u0012\u0004\u0012\u00020\u00040\rH@ø\u0001\u0000¢\u0006\u0002\u0010\u001aJA\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00020\t2\u0012\u0010\u0013\u001a\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t0\u00142\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\u00040\rH@ø\u0001\u0000¢\u0006\u0002\u0010\u001cJ\u0014\u0010\u001d\u001a\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t0\u0016H\u0016J\u0018\u0010\u001e\u001a\u00020\t2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\"H\u0016J\u0012\u0010#\u001a\u0004\u0018\u00010\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010$\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010%\u001a\u00020&2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010'\u001a\u00020\t2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\"H\u0016\u0002\u0004\n\u0002\b\u0019¨\u0006("}, d2 = {"Lani/dantotsu/downloadAddon/DownloadAddon;", "Lani/dantotsu/addons/download/DownloadAddonApiV2;", "()V", "cancelDownload", "", "sessionId", "", "customFFMpeg", "command", "", "videoUrls", "", "logCallback", "Lkotlin/Function1;", "(Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "customFFProbe", "executeFFMpeg", "videoUrl", "downloadPath", "headers", "", "subtitleUrls", "Lkotlin/Pair;", "audioUrls", "statCallback", "", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "executeFFProbe", "(Ljava/lang/String;Ljava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getFileExtension", "getReadPath", "context", "Landroid/content/Context;", "uri", "Landroid/net/Uri;", "getStackTrace", "getState", "hadError", "", "setDownloadPath", "app_release"}, k = 1, mv = {1, 9, 0}, xi = 48)
 /* compiled from: DownloadAddon.kt */
 public final class DownloadAddon implements DownloadAddonApiV2 {
 
     @Metadata(k = 3, mv = {1, 9, 0}, xi = 48)
     /* compiled from: DownloadAddon.kt */
-    public /* synthetic */ class WhenMappings {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    /* compiled from: DownloadAddon.kt */
+    public final class WhenMappings {
+        public static final int[] $EnumSwitchMapping$0;
 
         static {
-            try {
-                com.arthenica.ffmpegkit.SessionState[] values = com.arthenica.ffmpegkit.SessionState.values();
-                int length = values.length;
-                int[] enumSwitchMapping = new int[length];
-
-                for (com.arthenica.ffmpegkit.SessionState state : values) {
-                    switch (state) {
-                        case COMPLETED:
-                            enumSwitchMapping[state.ordinal()] = 1;
-                            break;
-                        case FAILED:
-                            enumSwitchMapping[state.ordinal()] = 2;
-                            break;
-                        case RUNNING:
-                            enumSwitchMapping[state.ordinal()] = 3;
-                            break;
-                        default:
-                            // Handle any other cases if necessary
-                            break;
-                    }
-                }
-                $EnumSwitchMapping$0 = enumSwitchMapping;
-            } catch (Exception e) {
-                throw new RuntimeException("Unexpected exception during static initialization", e);
-            }
+            int[] r0 = new int[com.arthenica.ffmpegkit.SessionState.values().length];
+            $EnumSwitchMapping$0 = r0;
+            r0[com.arthenica.ffmpegkit.SessionState.COMPLETED.ordinal()] = 1;
+            r0[com.arthenica.ffmpegkit.SessionState.FAILED.ordinal()] = 2;
+            r0[com.arthenica.ffmpegkit.SessionState.RUNNING.ordinal()] = 3;
+        }
+        private WhenMappings() {
+            throw new UnsupportedOperationException("Method not decompiled: ani.satio.downloadAddon.DownloadAddon.WhenMappings.<clinit>():void");
         }
     }
-
 
     public void cancelDownload(long j) {
         FFmpegKit.cancel(j);
@@ -124,7 +103,7 @@ public final class DownloadAddon implements DownloadAddonApiV2 {
         downloadBuilder.setHeaders(map);
         downloadBuilder.setSubtitleLinks(list);
         downloadBuilder.setAudioLinks(list2);
-        return boxLong(FFmpegKit.executeAsync(downloadBuilder.buildDownload(), new DownloadAddon$$ExternalSyntheticLambda0(), new DownloadAddon$$ExternalSyntheticLambda1(), new DownloadAddon$$ExternalSyntheticLambda2(function1)).getSessionId());
+        return Boxing.boxLong(FFmpegKit.executeAsync(downloadBuilder.buildDownload(), new DownloadAddon$$ExternalSyntheticLambda0(), new DownloadAddon$$ExternalSyntheticLambda1(), new DownloadAddon$$ExternalSyntheticLambda2(function1)).getSessionId());
     }
 
     /* access modifiers changed from: private */
@@ -148,10 +127,10 @@ public final class DownloadAddon implements DownloadAddonApiV2 {
 
     public Object customFFMpeg(String str, List<String> list, Function1<? super String, Unit> function1, Continuation<? super Long> continuation) {
         if (!Intrinsics.areEqual((Object) str, (Object) "1")) {
-            return boxLong(System.currentTimeMillis());
+            return Boxing.boxLong(System.currentTimeMillis());
         }
         if (list.size() == 2) {
-            return boxLong(FFmpegKit.executeAsync("-i " + list.get(0) + " -codec copy -fflags +genpts " + list.get(1), new DownloadAddon$$ExternalSyntheticLambda3(), new DownloadAddon$$ExternalSyntheticLambda4(), new DownloadAddon$$ExternalSyntheticLambda5(function1)).getSessionId());
+            return Boxing.boxLong(FFmpegKit.executeAsync("-i " + list.get(0) + " -codec copy -fflags +genpts " + list.get(1), new DownloadAddon$$ExternalSyntheticLambda3(), new DownloadAddon$$ExternalSyntheticLambda4(), new DownloadAddon$$ExternalSyntheticLambda5(function1)).getSessionId());
         }
         throw new RuntimeException("videoUrls is not 2");
     }
@@ -195,7 +174,7 @@ public final class DownloadAddon implements DownloadAddonApiV2 {
                 if (i != 3) {
                     return "UNKNOWN";
                 }
-                return "RUNNING";
+                return DebugCoroutineInfoImplKt.RUNNING;
             }
         }
         return "UNKNOWN";
